@@ -1,5 +1,5 @@
-#ifndef CONWAY_H
-#define CONWAY_H
+#ifndef CONWAY_HPP
+#define CONWAY_HPP
 
 // third-party includes
 #include <mdspan-stable/include/mdspan/mdspan.hpp>
@@ -10,11 +10,11 @@
 #include <algorithm>
 
 // local includes
-#include <settings.h>
-#include <board.h>
-#include <evolve.h>
-#include <seed.h>
-#include <update_padding.h>
+#include <settings.hpp>
+#include <board.hpp>
+#include <evolve.hpp>
+#include <seed.hpp>
+#include <update_padding.hpp>
 
 namespace conway {
 

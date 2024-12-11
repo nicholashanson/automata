@@ -1,5 +1,5 @@
-#ifndef SEED_H
-#define SEED_H
+#ifndef SEED_HPP
+#define SEED_HPP
 
 namespace conway {
 

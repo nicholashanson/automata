@@ -1,5 +1,5 @@
 #include <boost/test/unit_test.hpp>
-#include "conway.h"
+#include "conway.hpp"
 
 /*
     Rule two: Any live cell with two or three live neighbors lives

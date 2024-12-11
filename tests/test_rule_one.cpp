@@ -1,5 +1,5 @@
 #include <boost/test/unit_test.hpp>
-#include "conway.h"
+#include "conway.hpp"
 
 /*
     Rule one: Any live cell with fewer than two live neighbors dies,

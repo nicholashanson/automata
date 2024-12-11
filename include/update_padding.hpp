@@ -1,5 +1,5 @@
-#ifndef UPDATE_PADDING_H
-#define UPDATE_PADDING_H
+#ifndef UPDATE_PADDING_HPP
+#define UPDATE_PADDING_HPP
 
 namespace conway {
 

@@ -1,5 +1,5 @@
-#ifndef EVOLVE_H
-#define EVOLVE_H
+#ifndef EVOLVE_HPP
+#define EVOLVE_HPP
 
 namespace conway {
 
