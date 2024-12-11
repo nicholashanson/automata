@@ -2,8 +2,8 @@ namespace conway {
 
     namespace settings {
 
-        const size_t board_width = 50;
-        const size_t board_height = 50;
+        const size_t board_width = 200;
+        const size_t board_height = 200;
         ;
         const size_t square_size = 5;
 

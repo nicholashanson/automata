@@ -1,5 +1,5 @@
 #include "raylib.h"
-#include "conway.h"
+#include "conway.hpp"
 
 void draw_cell( size_t i, size_t j )
 {
@@ -12,8 +12,8 @@ void draw_cell( size_t i, size_t j )
 void draw_background()
 {
     ClearBackground( BLACK );
-    for ( size_t i = 0; i < conway::settings::board_width; i++ )
-        for ( size_t j = 0; j < conway::settings::board_height; j++ )
+    for ( size_t i = 0; i < conway::settings::board_width; ++i )
+        for ( size_t j = 0; j < conway::settings::board_height; ++j )
             DrawRectangle( i * conway::settings::square_size,
                            j * conway::settings::square_size,
                            conway::settings::square_size - 1,
@@ -37,8 +37,8 @@ int main()
 
         draw_background();
 
-        for ( size_t i = 1; i < board.get_board_height(); i++ )
-            for ( size_t j = 1; j < board.get_board_width(); j++ )
+        for ( size_t i = 1; i < board.get_board_height(); ++i )
+            for ( size_t j = 1; j < board.get_board_width(); ++j )
                 if ( board.get_cell_state( i, j ) == 1 )
                     draw_cell( i - 1, j - 1);
 

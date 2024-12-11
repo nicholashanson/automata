@@ -11,13 +11,13 @@ namespace conway {
         mdspan new_board( new_cell_states.data() );
 
         // loop through cells, excluding edge cells
-        for ( size_t i = 1; i < bd.board_.static_extent( 0 ) - 1; i++ )
-            for ( size_t j = 1; j < bd.board_.static_extent( 1 ) - 1; j++ ) {
+        for ( size_t i = 1; i < bd.board_.static_extent( 0 ) - 1; ++i )
+            for ( size_t j = 1; j < bd.board_.static_extent( 1 ) - 1; ++j ) {
                 unsigned region_live_count{};
 
                 // loop nine-cell region
-                for ( int k = -1; k <= 1; k++ )
-                    for ( int l = -1; l <= 1; l++ )
+                for ( int k = -1; k <= 1; ++k )
+                    for ( int l = -1; l <= 1; ++l )
                         // if cell is live, increment live-cell count
                         if ( bd.board_[ i + k, j + l ] == 1 )
                             region_live_count++;

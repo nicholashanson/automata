@@ -7,18 +7,18 @@ namespace conway {
     class board {
         public:
             board( array );
+
             bool operator==( const board& );
-            const mdspan& get_current_state();
 
             size_t get_board_width() {
                 return board_.static_extent( 1 );
             }
-
             size_t get_board_height() {
                 return board_.static_extent( 0 );
             }
 
             bool get_cell_state( const size_t, const size_t );
+
             void set_cell_state( const size_t, const size_t, const bool );
 
             friend void evolve<array, mdspan>( board<array, mdspan>& );
@@ -35,16 +35,11 @@ namespace conway {
     // test for equality between two boards
     template<typename array, typename mdspan>
     bool board<array, mdspan>::operator==( const board& rhs ) {
-        for ( size_t i = 0; i < board_.static_extent( 0 ); i++ )
-            for ( size_t j = 0; j < board_.static_extent( 1 ); j ++ )
+        for ( size_t i = 0; i < board_.static_extent( 0 ); ++i )
+            for ( size_t j = 0; j < board_.static_extent( 1 ); ++j )
                 if ( board_[ i, j ] != rhs.board_[ i, j ] )
                     return false;
         return true;
-    }
-
-    template<typename array, typename mdspan>
-    const mdspan& board<array, mdspan>::get_current_state() {
-        return board_;
     }
 
     template<typename array, typename mdspan>
