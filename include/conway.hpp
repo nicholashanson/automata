@@ -9,12 +9,7 @@
 #include <random>
 #include <algorithm>
 
-// local includes
 #include <settings.hpp>
-#include <board.hpp>
-#include <evolve.hpp>
-#include <seed.hpp>
-#include <update_padding.hpp>
 
 namespace conway {
 
@@ -56,5 +51,11 @@ namespace conway {
     extern a56 beehive;
 
 }
+
+// local includes
+#include <board.hpp>
+#include <evolve.hpp>
+#include <seed.hpp>
+#include <update_padding.hpp>
 
 #endif

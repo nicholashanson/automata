@@ -10,18 +10,16 @@ namespace conway {
 
             bool operator==( const board& );
 
-            size_t get_board_width() {
+            size_t get_board_width() const {
                 return board_.static_extent( 1 );
             }
-            size_t get_board_height() {
+            size_t get_board_height() const {
                 return board_.static_extent( 0 );
             }
 
-            bool get_cell_state( const size_t, const size_t );
+            bool get_cell_state( const size_t, const size_t ) const;
 
             void set_cell_state( const size_t, const size_t, const bool );
-
-            friend void evolve<array, mdspan>( board<array, mdspan>& );
         private:
             array cell_states_;
             mdspan board_;
@@ -43,7 +41,7 @@ namespace conway {
     }
 
     template<typename array, typename mdspan>
-    bool board<array, mdspan>::get_cell_state( const size_t i, const size_t j ) {
+    bool board<array, mdspan>::get_cell_state( const size_t i, const size_t j ) const {
         return board_[ i, j ];
     }
 
