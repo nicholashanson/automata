@@ -1,6 +1,7 @@
 #include "conway.h"
 
 namespace conway {
+
     a25 rule_one_0_before = {
         0, 0, 0, 0, 0,
         0, 0, 0, 0, 0,
@@ -101,4 +102,5 @@ namespace conway {
         0, 1, 0, 0, 0, 0, 1,
         0, 1, 0, 0, 0, 0, 1
     };
+
 }
