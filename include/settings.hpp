@@ -1,9 +1,14 @@
+#ifndef SETTINGS_H
+#define SETTINGS_H
+
 namespace conway {
 
     namespace settings {
 
-        const size_t board_width = 200;
-        const size_t board_height = 200;
+        const size_t board_width = 5;
+        const size_t board_height = 5;
+
+        const size_t grid_size = 5;
         ;
         const size_t square_size = 5;
 
@@ -13,3 +18,5 @@ namespace conway {
     }
 
 }
+
+#endif

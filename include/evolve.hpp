@@ -46,10 +46,10 @@ namespace conway {
     unsigned get_region_live_count( const board<array, mdspan>& bd, const size_t i, const size_t j ) {
         unsigned region_live_count{};
         // loop nine-cell region
-        for ( int k = -1; k <= 1; ++k )
-            for ( int l = -1; l <= 1; ++l )
+        for ( int di = -1; di <= 1; ++di )
+            for ( int dj = -1; dj <= 1; ++dj )
                 // if cell is live, increment live-cell count
-                if ( bd.get_cell_state( i + k, j + l ) == 1 )
+                if ( bd.get_cell_state( i + di, j + dj ) == 1 )
                     region_live_count++;
         return region_live_count;
     }

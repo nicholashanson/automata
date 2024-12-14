@@ -8,8 +8,16 @@
 #include <array>
 #include <random>
 #include <algorithm>
+#include <iostream>
 
+// local includes
 #include <settings.hpp>
+#include <board.hpp>
+#include <cube.hpp>
+#include <evolve.hpp>
+#include <seed.hpp>
+#include <update_padding.hpp>
+#include <global_aliases.hpp>
 
 namespace conway {
 
@@ -25,10 +33,6 @@ namespace conway {
     using a49 = std::array<bool, 49>; // 7x7 board
     using a56 = std::array<bool, 56>; // 7x8 board
 
-    // dimensions for board and under-lying cell-state storage
-    using sim_mdspan = Kokkos::mdspan<bool, Kokkos::extents<size_t, settings::board_width + 2, settings::board_height + 2>>;
-    using sim_array = std::array<bool, ( settings::board_width + 2 ) * ( settings::board_height + 2 ) >;
-
     // arrays for testing evolve
     extern a25 rule_one_0_before;
     extern a25 rule_one_0_after;
@@ -43,6 +47,18 @@ namespace conway {
     extern a49 board_update_before;
     extern a49 board_update_after;
 
+    // arrays for testing cube
+    extern a25 blank_face;
+    extern a25 cube_face_0_before_update;
+    extern a25 cube_face_5_after_update;
+
+
+
+
+
+
+
+
     // under-lying storage for cell states
     static sim_array cell_states;
 
@@ -51,11 +67,5 @@ namespace conway {
     extern a56 beehive;
 
 }
-
-// local includes
-#include <board.hpp>
-#include <evolve.hpp>
-#include <seed.hpp>
-#include <update_padding.hpp>
 
 #endif
