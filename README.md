@@ -1,6 +1,6 @@
 # Game of Life
 
-## Compilation
+### Compilation
 
 C++23 is required. The code compiles on GCC 13.2.0.
 
