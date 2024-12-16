@@ -2,6 +2,13 @@
 
 ## Compilation
 
+C++23 is required. The code compiles on GCC 13.2.0.
+
+Dependencies:
+- boost test
+- mdspan
+- raylib
+
 Compiling with GCC 13.2.0 gives the following warning:
 
 `warning: passing 'const Vector3' as 'this' argument discards qualifiers [-fpermissive]`
