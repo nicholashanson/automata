@@ -2,7 +2,7 @@
 
 ## Compilation
 
-`This text will have a code-like background.`
+`warning: passing 'const Vector3' as 'this' argument discards qualifiers [-fpermissive]`
 
 ### Cube
 
