@@ -5,12 +5,12 @@ namespace conway {
 
     namespace settings {
 
-        const size_t board_width = 40;
+        const size_t board_width = 20;
         const size_t board_height = 20;
 
-        const float camera_x = 20.0f;
-        const float camera_y = 20.0f;
-        const float camera_z = 20.0f;
+        const float camera_x = 30.0f;
+        const float camera_y = 30.0f;
+        const float camera_z = 30.0f;
         ;
         const size_t square_size = 5;
 

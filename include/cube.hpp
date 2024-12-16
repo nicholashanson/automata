@@ -65,40 +65,40 @@ namespace conway {
     template<typename array, typename mdspan>
     const std::array<typename cube<array, mdspan>::face_mapping, 6> cube<array, mdspan>::face_mappings = {
         face_mapping{ 0,
-            edge_mapping{ 3, 3, false }, // face 0 top row => face 3 bottom row, not reversed
-            edge_mapping{ 4, 2, false }, // face 0 left column => face 4 right column, not reversed
-            edge_mapping{ 5, 1, false }, // face 0 right column => face 5 left column, not reversed
-            edge_mapping{ 1, 0, false } // face 0 bottom row => face 1 top row, not reversed
+            edge_mapping{ 3, 3, false },  // face 0 top row => face 3 bottom row, not reversed
+            edge_mapping{ 4, 2, false },  // face 0 left column => face 4 right column, not reversed
+            edge_mapping{ 5, 1, false },  // face 0 right column => face 5 left column, not reversed
+            edge_mapping{ 1, 0, false }   // face 0 bottom row => face 1 top row, not reversed
         },
         face_mapping{ 1,
-            edge_mapping{ 0, 3, false }, // face 1 top row => face 0 bottom row, not reversed
-            edge_mapping{ 4, 3, true }, // face 1 left column => face 4 bottom row, reversed
-            edge_mapping{ 5, 3, false}, // face 1 right column => face 5 bottom row, not reversed
-            edge_mapping{ 2, 0, false } // face 1 bottom row => face 2 top row, not reversed
+            edge_mapping{ 0, 3, false },  // face 1 top row => face 0 bottom row, not reversed
+            edge_mapping{ 4, 3, true },   // face 1 left column => face 4 bottom row, reversed
+            edge_mapping{ 5, 3, false},   // face 1 right column => face 5 bottom row, not reversed
+            edge_mapping{ 2, 0, false }   // face 1 bottom row => face 2 top row, not reversed
         },
         face_mapping{ 2,
-            edge_mapping{ 1, 3, false }, // face 2 top row => face 1 bottom row, not reversed
-            edge_mapping{ 4, 1, true }, // face 2 left column => face 4 left column, reversed
-            edge_mapping{ 5, 2, true }, // face 2 right column => face 5 right column, reversed
-            edge_mapping{ 3, 0, false } // face 2 bottom row => face 5 top row, not reversed
+            edge_mapping{ 1, 3, false },  // face 2 top row => face 1 bottom row, not reversed
+            edge_mapping{ 4, 1, true },   // face 2 left column => face 4 left column, reversed
+            edge_mapping{ 5, 2, true },   // face 2 right column => face 5 right column, reversed
+            edge_mapping{ 3, 0, false }   // face 2 bottom row => face 5 top row, not reversed
         },
         face_mapping{ 3,
-            edge_mapping{ 2, 3, false }, // face 3 top row => face 2 bottom row, not reversed
-            edge_mapping{ 4, 1, false }, // face 3 left column => face 4 top left column, not reversed
-            edge_mapping{ 5, 0, true }, // face 3 right column => face 5 top row, reversed
-            edge_mapping{ 0, 0, false } // face 3 bottom row => face 0 top row, not reversed
+            edge_mapping{ 2, 3, false },   // face 3 top row => face 2 bottom row, not reversed
+            edge_mapping{ 4, 1, false },   // face 3 left column => face 4 top left column, not reversed
+            edge_mapping{ 5, 0, true },    // face 3 right column => face 5 top row, reversed
+            edge_mapping{ 0, 0, false }    // face 3 bottom row => face 0 top row, not reversed
         },
         face_mapping{ 4,
-            edge_mapping{ 3, 2, false }, // face 4 top row => face 3 right column, not reversed
-            edge_mapping{ 2, 1, true }, // face 4 left column => face 2 left column, reversed
-            edge_mapping{ 0, 1, false }, // face 4 right column => face 0 left column, not reversed
-            edge_mapping{ 1, 3, true } // face 4 bottom row => face 1 bottom row, reversed
+            edge_mapping{ 3, 1, false },   // face 4 top row => face 3 left column, not reversed
+            edge_mapping{ 2, 1, true },    // face 4 left column => face 2 left column, reversed
+            edge_mapping{ 0, 1, false },   // face 4 right column => face 0 left column, not reversed
+            edge_mapping{ 1, 1, true }     // face 4 bottom row => face 1 left row, reversed
         },
         face_mapping{ 5,
-            edge_mapping{ 3, 2, true }, // face 5 top row => face 3 right column, reversed
-            edge_mapping{ 0, 2, false }, // face 5 left column => face 0 right column, not reversed
-            edge_mapping{ 2, 2, true }, // face 5 right column => face 2 right column, reversed
-            edge_mapping{ 1, 2, false } // face 5 bottom row => face 1 right column, not reversed
+            edge_mapping{ 3, 2, true },   // face 5 top row => face 3 right column, reversed
+            edge_mapping{ 0, 2, false },  // face 5 left column => face 0 right column, not reversed
+            edge_mapping{ 2, 2, true },   // face 5 right column => face 2 right column, reversed
+            edge_mapping{ 1, 2, false }   // face 5 bottom row => face 1 right column, not reversed
         }
     };
 
@@ -118,23 +118,29 @@ namespace conway {
         const auto [ bottom_row_face, bottom_row_vector, bottom_reversed ] = bottom_row_mapping;
 
         for ( size_t column = 1; column < faces[ face_index ].get_board_width() - 1; ++column ) {
+
+            // face 4 top row maps to face 3 left column, not reversed
+            if ( top_row_vector == 1 )
+                faces[ face_index ].set_cell_state( 0, column, faces[ top_row_face].get_cell_state( column, 1 ) );
+
+            // face 0 top row maps to face 3 bottom row, not reversed
+            // face 1 top row maps to face 0 bottom row, not reversed
             if ( top_row_vector == 3 )
                 faces[ face_index ].set_cell_state( 0, column, faces[ top_row_face ].get_cell_state( bottom_index, column ) );
 
+            // face 4 top row maps to face 3 left column
             if ( top_row_vector == 2 )
-                if ( top_reversed == true )
-                    faces[ face_index ].set_cell_state( 0, column, faces[ top_row_face ].get_cell_state( bottom_padding - column, right_index ) );
-                else
-                    faces[ face_index ].set_cell_state( 0, column, faces[ top_row_face ].get_cell_state( column, right_index ) );
+                faces[ face_index ].set_cell_state( 0, column, faces[ top_row_face ].get_cell_state( bottom_padding - column, right_index ) );
 
             if ( bottom_row_vector == 0 )
                 faces[ face_index ].set_cell_state( bottom_padding, column, faces[ bottom_row_face ].get_cell_state( 1, column ) );
 
+            // face 4 bottom row maps to face 1 left column, reversed
+            if ( bottom_row_vector == 1 )
+                faces[ face_index ].set_cell_state( bottom_padding, column, faces[ bottom_row_face ].get_cell_state( bottom_padding - column, 1) );
+
             if ( bottom_row_vector == 2 )
                 faces[ face_index ].set_cell_state( bottom_padding, column, faces[ bottom_row_face ].get_cell_state( column, right_index ) );
-
-            if ( bottom_row_vector == 3 )
-                faces[ face_index ].set_cell_state( bottom_padding, column, faces[ bottom_row_face ].get_cell_state( bottom_index, right_padding - column ) );
         }
 
         for ( size_t row = 1; row < faces[ face_index ].get_board_height() - 1; ++row ) {
@@ -144,11 +150,12 @@ namespace conway {
             if ( left_column_vector == 3 )
                 faces[ face_index ].set_cell_state( row, 1, faces[ left_column_face ].get_cell_state( bottom_index, right_padding - row ) );
 
-            if ( left_column_vector == 1 )
+            if ( left_column_vector == 1 ) {
                 if ( left_reversed == true )
                     faces[ face_index ].set_cell_state( row, 1, faces[ left_column_face ].get_cell_state( bottom_padding - row,  1 ) );
                 else
                     faces[ face_index ].set_cell_state( row, 1, faces[ left_column_face ].get_cell_state( row, 1 ) );
+            }
 
             if ( right_column_vector == 0 )
                 faces[ face_index ].set_cell_state( row, right_padding, faces[ right_column_face ].get_cell_state( 1, right_padding - row ) );

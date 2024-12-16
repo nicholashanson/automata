@@ -11,11 +11,11 @@ namespace conway {
     float r = sqrt( std::pow( settings::camera_x, 2 ) + std::pow( settings::camera_y, 2 ) + std::pow( settings::camera_z, 2 ) );
 
     void set_up_camera() {
-        camera.position = ( Vector3 ){ settings::camera_x, settings::camera_y, settings::camera_z };
-        camera.target = ( Vector3 ){ 0.0f, 0.0f, 0.0f };
-        camera.up = ( Vector3 ){ 0.0f, 1.0f, 0.0f };
+        camera.position = Vector3{ settings::camera_x, settings::camera_y, settings::camera_z };
+        camera.target = Vector3{ 0.0f, 0.0f, 0.0f };
+        camera.up = Vector3{ 0.0f, 1.0f, 0.0f };
         camera.fovy = 20.0f;
-        CameraMode( camera, CAMERA_PERSPECTIVE );
+        camera.projection = CAMERA_PERSPECTIVE;
     }
 
     void modify_camera_position() {

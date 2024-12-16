@@ -3,7 +3,7 @@
 #include "conway.hpp"
 #include "rlgl.h"
 #include <iostream>
-#include <rendering.h>
+#include <rendering.hpp>
 #include <cstring>
 #include <controls.hpp>
 
@@ -13,9 +13,10 @@ int main(int argc, char* argv[]) {
     const int screen_height = 600;
 
     SetConfigFlags( FLAG_MSAA_4X_HINT );
+
     InitWindow( screen_width, screen_height, "Game of Life" );
 
-    SetTargetFPS(10);
+    SetTargetFPS( 10 );
 
     conway::set_up_camera();
 
@@ -43,12 +44,6 @@ int main(int argc, char* argv[]) {
 
         BeginMode3D( conway::camera );
 
-        DrawGrid( 100, 1.0f );
-
-        DrawLine3D( ( Vector3 ){ 0.0f, 0.0f, 0.0f }, ( Vector3 ){ 50.0f, 0.0f, 0.0f }, RED );    // x-axis
-        DrawLine3D( ( Vector3 ){ 0.0f, 0.0f, 0.0f }, ( Vector3 ){ 0.0f, 50.0f, 0.0f }, GREEN );  // y-axis
-        DrawLine3D( ( Vector3 ){ 0.0f, 0.0f, 0.0f }, ( Vector3 ){ 0.0f, 0.0f, 50.0f }, BLUE );   // z-axis
-
         if ( strcmp( argv[ 1 ], "cylinder" ) == 0 )
             conway::draw_cylinder( board, blue_cube, white_cube );
 
@@ -70,10 +65,6 @@ int main(int argc, char* argv[]) {
         }
 
         conway::handle_controls();
-
-        if ( IsKeyDown( KEY_SPACE ) ) {
-            cube.print_faces();
-        }
 
     }
 

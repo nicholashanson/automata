@@ -3,6 +3,7 @@
 
 namespace conway {
 
+    // evolve the board according to game of life rules
     template<typename array, typename mdspan>
     void evolve( board<array, mdspan>& bd ) {
 
@@ -15,6 +16,7 @@ namespace conway {
 
     }
 
+    // get the live counts for each nine-cell region on the board
     template<typename array, typename mdspan>
     void get_region_live_counts( const board<array, mdspan>& bd, std::vector<std::tuple<size_t, size_t, unsigned >>& region_live_counts ) {
         // loop through cells, excluding edge cells
@@ -33,15 +35,16 @@ namespace conway {
         std::ranges::for_each( region_live_counts, [&]( const auto& region_live_count ){
             // apply rules
             auto [ i, j, live_count ] = region_live_count;
-            if ( live_count == 3 )
+            if ( live_count == 3 ) // live cell survives, dead cell comes to life
                 bd.set_cell_state( i, j, 1 );
-            else if ( live_count == 4 )
+            else if ( live_count == 4 ) // cell maintains its status
                 return;
-            else
+            else // cell dies
                 bd.set_cell_state( i, j, 0 );
         } );
     }
 
+    // count the number of lives cells in a nine-cell region
     template<typename array, typename mdspan>
     unsigned get_region_live_count( const board<array, mdspan>& bd, const size_t i, const size_t j ) {
         unsigned region_live_count{};

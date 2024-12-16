@@ -56,7 +56,7 @@ namespace conway {
     extern a25 cube_face_5_after_update;
 
     // under-lying storage for cell states
-    static sim_array cell_states;
+    [[maybe_unused]] static sim_array cell_states;
 
     // still-life state
     extern a36 block;

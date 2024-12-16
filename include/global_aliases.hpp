@@ -9,8 +9,6 @@ namespace conway {
     using sim_mdspan = Kokkos::mdspan<bool, Kokkos::extents<size_t, settings::board_width + 2, settings::board_height + 2>>;
     using sim_array = std::array<bool, ( settings::board_width + 2 ) * ( settings::board_height + 2 ) >;
 
-    // under-lying storage for cube faces
-    static sim_array sim_blank_face;
 }
 
 #endif
