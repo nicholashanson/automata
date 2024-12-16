@@ -2,6 +2,8 @@
 
 ## Compilation
 
+Compiling with GCC 13.2.o gives the following warning:
+
 `warning: passing 'const Vector3' as 'this' argument discards qualifiers [-fpermissive]`
 
 ### Cube
