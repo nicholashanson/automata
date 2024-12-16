@@ -50,14 +50,10 @@ namespace conway {
     // arrays for testing cube
     extern a25 blank_face;
     extern a25 cube_face_0_before_update;
+    extern a25 cube_face_1_after_update;
+    extern a25 cube_face_3_after_update;
+    extern a25 cube_face_4_after_update;
     extern a25 cube_face_5_after_update;
-
-
-
-
-
-
-
 
     // under-lying storage for cell states
     static sim_array cell_states;

@@ -46,8 +46,7 @@ namespace conway {
                 return bd == faces[ i ];
             }
 
-            template<size_t i>
-            bool get_cell_state( const size_t x, const size_t y ) const {
+            bool get_cell_state( const size_t i, const size_t x, const size_t y ) const {
                 return faces[ i ].get_cell_state( x, y );
             }
 
@@ -57,11 +56,6 @@ namespace conway {
             }
 
             void update_face( const face_mapping& );
-
-            void print_faces() {
-                for ( const auto& face: faces )
-                    face.print();
-            }
 
         private:
             std::array<board<array, mdspan>, 6> faces;
@@ -111,8 +105,7 @@ namespace conway {
     template<typename array, typename mdspan>
     void cube<array, mdspan>::update_face( const face_mapping& fm ) {
 
-        auto [ face_index, top_row_mapping, left_column_mapping, right_column_mapping,
-            bottom_row_mapping ] = fm;
+        const auto& [ face_index, top_row_mapping, left_column_mapping, right_column_mapping, bottom_row_mapping ] = fm;
 
         const size_t bottom_index = faces[ face_index ].get_board_height() - 2;
         const size_t right_index = faces[ face_index ].get_board_width() - 2;
@@ -135,13 +128,13 @@ namespace conway {
                     faces[ face_index ].set_cell_state( 0, column, faces[ top_row_face ].get_cell_state( column, right_index ) );
 
             if ( bottom_row_vector == 0 )
-                faces[ face_index ].set_cell_state( bottom_padding, column, faces[ top_row_face ].get_cell_state( 0, column ) );
+                faces[ face_index ].set_cell_state( bottom_padding, column, faces[ bottom_row_face ].get_cell_state( 1, column ) );
 
             if ( bottom_row_vector == 2 )
-                faces[ face_index ].set_cell_state( bottom_padding, column, faces[ top_row_face ].get_cell_state( column, right_index ) );
+                faces[ face_index ].set_cell_state( bottom_padding, column, faces[ bottom_row_face ].get_cell_state( column, right_index ) );
 
             if ( bottom_row_vector == 3 )
-                faces[ face_index ].set_cell_state( bottom_padding, column, faces[ top_row_face ].get_cell_state( bottom_index, right_padding - column ) );
+                faces[ face_index ].set_cell_state( bottom_padding, column, faces[ bottom_row_face ].get_cell_state( bottom_index, right_padding - column ) );
         }
 
         for ( size_t row = 1; row < faces[ face_index ].get_board_height() - 1; ++row ) {
