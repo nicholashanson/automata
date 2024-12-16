@@ -8,7 +8,7 @@ C++23 is required. The code compiles on GCC 13.2.0.
 
 Dependencies:
 - boost test
-- mdspan
+- Kokkos mdspan
 - raylib
 
 Compiling with GCC 13.2.0 gives the following no warnings.
