@@ -11,15 +11,13 @@ Dependencies:
 - mdspan
 - raylib
 
-Compiling with GCC 13.2.0 gives the following warning:
-
-`warning: passing 'const Vector3' as 'this' argument discards qualifiers [-fpermissive]`
+Compiling with GCC 13.2.0 gives the following no warnings.
 
 ### Cube
 
 The cube is a combination of six boards with spherical wrapping.
 
-![cube](https://github.com/user-attachments/assets/a127e0e5-7fd3-405d-937c-d61e9f8dceb9)
+![cube](https://github.com/user-attachments/assets/c293ca2a-4e59-4f4e-9dd7-263688621c55)
 
 ### Cylinder
 
