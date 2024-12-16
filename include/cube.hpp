@@ -84,7 +84,7 @@ namespace conway {
         },
         face_mapping{ 3,
             edge_mapping{ 2, 3, false },   // face 3 top row => face 2 bottom row, not reversed
-            edge_mapping{ 4, 1, false },   // face 3 left column => face 4 top left column, not reversed
+            edge_mapping{ 4, 0, false },   // face 3 left column => face 4 top row, not reversed
             edge_mapping{ 5, 0, true },    // face 3 right column => face 5 top row, reversed
             edge_mapping{ 0, 0, false }    // face 3 bottom row => face 0 top row, not reversed
         },
@@ -121,16 +121,16 @@ namespace conway {
 
             // face 4 top row maps to face 3 left column, not reversed
             if ( top_row_vector == 1 )
-                faces[ face_index ].set_cell_state( 0, column, faces[ top_row_face].get_cell_state( column, 1 ) );
+                faces[ face_index ].set_cell_state( 0, column, faces[ top_row_face ].get_cell_state( column, 1 ) );
+
+            // face 5 top row maps to face 3 right column, reversed
+            if ( top_row_vector == 2 )
+                faces[ face_index ].set_cell_state( 0, column, faces[ top_row_face ].get_cell_state( bottom_padding - column, right_index ) );
 
             // face 0 top row maps to face 3 bottom row, not reversed
             // face 1 top row maps to face 0 bottom row, not reversed
             if ( top_row_vector == 3 )
                 faces[ face_index ].set_cell_state( 0, column, faces[ top_row_face ].get_cell_state( bottom_index, column ) );
-
-            // face 4 top row maps to face 3 left column
-            if ( top_row_vector == 2 )
-                faces[ face_index ].set_cell_state( 0, column, faces[ top_row_face ].get_cell_state( bottom_padding - column, right_index ) );
 
             if ( bottom_row_vector == 0 )
                 faces[ face_index ].set_cell_state( bottom_padding, column, faces[ bottom_row_face ].get_cell_state( 1, column ) );
@@ -144,18 +144,19 @@ namespace conway {
         }
 
         for ( size_t row = 1; row < faces[ face_index ].get_board_height() - 1; ++row ) {
+
+            // face 3 left column maps to face 4 top row, not reversed
+            if ( left_column_vector == 0 )
+                faces[ face_index ].set_cell_state( row, 0, faces[ left_column_face ].get_cell_state( 1, row ) );
+
+            if ( left_column_vector == 1 )
+                faces[ face_index ].set_cell_state( row, 0, faces[ left_column_face ].get_cell_state( bottom_padding - row,  1 ) );
+
             if ( left_column_vector == 2 )
                 faces[ face_index ].set_cell_state( row, 0, faces[ left_column_face ].get_cell_state( row, right_index ) );
 
             if ( left_column_vector == 3 )
-                faces[ face_index ].set_cell_state( row, 1, faces[ left_column_face ].get_cell_state( bottom_index, right_padding - row ) );
-
-            if ( left_column_vector == 1 ) {
-                if ( left_reversed == true )
-                    faces[ face_index ].set_cell_state( row, 1, faces[ left_column_face ].get_cell_state( bottom_padding - row,  1 ) );
-                else
-                    faces[ face_index ].set_cell_state( row, 1, faces[ left_column_face ].get_cell_state( row, 1 ) );
-            }
+                faces[ face_index ].set_cell_state( row, 0, faces[ left_column_face ].get_cell_state( bottom_index, right_padding - row ) );
 
             if ( right_column_vector == 0 )
                 faces[ face_index ].set_cell_state( row, right_padding, faces[ right_column_face ].get_cell_state( 1, right_padding - row ) );
