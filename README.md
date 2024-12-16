@@ -11,7 +11,7 @@ Dependencies:
 - Kokkos mdspan
 - raylib
 
-Compiling with GCC 13.2.0 gives the following no warnings.
+Compiling with GCC 13.2.0 gives no warnings.
 
 ### Cube
 
