@@ -1,5 +1,7 @@
 # Game of Life
 
+Simulates Conway's Game of Life in various formats.
+
 ### Compilation
 
 C++23 is required. The code compiles on GCC 13.2.0.
