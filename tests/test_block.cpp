@@ -1,9 +1,11 @@
 #include <boost/test/unit_test.hpp>
 #include "conway.hpp"
 
+using namespace conway;
+
 BOOST_AUTO_TEST_CASE( BlockTest )
 {
-    conway::board<conway::a36, conway::md6x6> bd( conway::block );
-    conway::evolve( bd );
-    BOOST_CHECK( ( bd == conway::board<conway::a36, conway::md6x6>( conway::block ) ) );
+    board<a36, md6x6> bd( block );
+    evolve( bd );
+    BOOST_CHECK( ( bd == board<a36, md6x6>( block ) ) );
 }
