@@ -10,9 +10,7 @@ namespace conway {
 
     template<typename array, typename mdspan>
     class threaded_cube : public cube<array, mdspan> {
-
         public:
-
             using cube<array, mdspan>::cube;
 
             void evolve_faces() override {
@@ -30,7 +28,6 @@ namespace conway {
                     }
                 }
             }
-
     };
 
 }
