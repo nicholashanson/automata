@@ -1,3 +1,7 @@
+#ifndef CONTROLS_HPP
+#define CONTROLS_HPP
+
+#include <camera.hpp>
 #include <map>
 #include <functional>
 
@@ -20,3 +24,4 @@ namespace conway {
 
 }
 
+#endif
