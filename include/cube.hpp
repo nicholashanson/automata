@@ -34,7 +34,8 @@ namespace conway {
                 for ( auto& face: faces )
                     seed( face );
             }
-            void evolve_faces() {
+
+            virtual void evolve_faces() {
                 for ( auto& face: faces )
                     evolve( face );
             }
@@ -46,10 +47,6 @@ namespace conway {
                 return bd == faces[ i ];
             }
 
-            bool get_cell_state( const size_t i, const size_t x, const size_t y ) const {
-                return faces[ i ].get_cell_state( x, y );
-            }
-
             void update_faces() {
                 for ( const auto& face_mapping: face_mappings )
                     update_face( face_mapping );
@@ -57,8 +54,14 @@ namespace conway {
 
             void update_face( const face_mapping& );
 
-        private:
+            decltype( auto ) get_cell_state( const size_t face, const size_t i, const size_t j ) const {
+                return faces[ face ].get_cell_state( i, j );
+            }
+
+        protected:
             std::array<board<array, mdspan>, 6> faces;
+
+        private:
             static const std::array<face_mapping, 6> face_mappings;
     };
 
