@@ -22,7 +22,11 @@ To run the perfoamce profiles, build with:
 ```
 build.bat --profile
 ```
+And run with:
 
+```
+ca_profile
+```
 ### Compilation
 
 C++23 is required. The code compiles on GCC 13.2.0.
