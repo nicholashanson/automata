@@ -6,14 +6,14 @@ Simulates Cellular Automata, including Conway's Game of Life, in various formats
 
 To build the tests:
 
-'''
+```
 build.bat --test
-'''
+```
 And run with:
 
-'''
+```
 ca_test
-'''
+```
 
 ### Compilation
 
