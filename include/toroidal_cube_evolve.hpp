@@ -1,3 +1,6 @@
+#ifndef TOROIDAL_CUBE_EVOLVE_HPP
+#define TOROIDAL_CUBE_EVOLVE_HPP
+
 namespace conway {
 
     namespace toroidal_cube_evolve {
@@ -6,7 +9,7 @@ namespace conway {
 
         template<typename array, typename mdspan, size_t cube_rank>
         unsigned get_region_live_count( std::array<board<array, mdspan>, cube_rank + 2>& slices,
-                                         const size_t slice, const size_t i, const size_t j ) {
+                                        const size_t slice, const size_t i, const size_t j ) {
 
             unsigned region_live_count{};
 
@@ -18,7 +21,6 @@ namespace conway {
                             region_live_count++;
 
             return region_live_count;
-
         }
 
         // get the live counts for each nine-cell region on the board
@@ -38,21 +40,7 @@ namespace conway {
                     region_live_count = get_region_live_count<array, mdspan, cube_rank>( slices, slice, i, j );
 
                     region_live_counts.emplace_back( live_count{ i, j, region_live_count } );
-
             }
-
-        }
-
-        template<typename array, typename mdspan, size_t cube_rank>
-        void evolve( std::array<board<array, mdspan>, cube_rank + 2 >& slices, const size_t slice ) {
-
-            std::vector<live_count> region_live_counts;
-            region_live_counts.reserve( slices[ slice ].get_board_height() * slices[ slice ].get_board_width() );
-
-            get_region_live_counts<array, mdspan, cube_rank>( slices, slice, region_live_counts );
-
-            apply_rules( slices[ slice ], region_live_counts );
-
         }
 
         template<typename array, typename mdspan>
@@ -63,18 +51,30 @@ namespace conway {
                 auto [ i, j, live_count ] = region_live_count;
 
                 if ( slice.get_cell_state( i, j ) == 1 ) {
-                    if ( live_count < 6 || live_count > 8 )
+
+                    if ( 6 < live_count || live_count > 8 )
                         slice.set_cell_state( i, j, 0 );
-                } else {
-                    if ( live_count == 6 || live_count == 7 )
-                        slice.set_cell_state( i, j, 1 );
+
+                } else if ( live_count == 6 ) {
+                    slice.set_cell_state( i, j, 1 );
                 }
+            });
+        }
 
-            } );
+        template<typename array, typename mdspan, size_t cube_rank>
+        void evolve( std::array<board<array, mdspan>, cube_rank + 2>& slices, const size_t slice ) {
 
+            std::vector<live_count> region_live_counts;
+            region_live_counts.reserve( slices[ slice ].get_board_height() * slices[ slice ].get_board_width() );
+
+            get_region_live_counts<array, mdspan, cube_rank>( slices, slice, region_live_counts );
+
+            toroidal_cube_evolve::apply_rules( slices[ slice ], region_live_counts );
         }
 
     }
 
 }
+
+#endif
 
