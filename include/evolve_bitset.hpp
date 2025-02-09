@@ -76,7 +76,7 @@ namespace conway {
 
     template<template<typename, typename> class board, typename array, typename mdspan>
     void apply_rules_bitset( board<array, mdspan>& bd, const std::vector<std::tuple<size_t, size_t, unsigned>>& region_live_counts,
-                            std::bitset<mdspan::static_extent( 0 ) * mdspan::static_extent( 1 )>& activated_cells ) {
+                             std::bitset<mdspan::static_extent( 0 ) * mdspan::static_extent( 1 )>& activated_cells ) {
         std::ranges::for_each( region_live_counts, [&]( const auto& region_live_count ) {
 
             // apply rules
