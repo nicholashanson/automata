@@ -1,5 +1,5 @@
-#ifndef OPTIMISED_EVOLVE_HPP
-#define OPTIMISED_EVOLVE_HPP
+#ifndef EVOLVE_SET_HPP
+#define EVOLVE_SET_HPP
 
 #include <vector>
 
@@ -42,7 +42,7 @@ namespace conway {
 
     template<template<typename, typename> class board, typename array, typename mdspan>
     void apply_rules_set( board<array, mdspan>& bd, const std::vector<std::tuple<size_t, size_t, unsigned>>& region_live_counts ) {
-        std::ranges::for_each( region_live_counts, [&]( const auto& region_live_count ){
+        std::ranges::for_each( region_live_counts, [&]( const auto& region_live_count ) {
 
             // apply rules
             auto [ i, j, live_count ] = region_live_count;
