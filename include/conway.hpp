@@ -13,8 +13,17 @@
 // local includes
 #include <settings.hpp>
 #include <board.hpp>
+#include <board_bitset.hpp>
+#include <board_set.hpp>
+#include <board_unordered_set.hpp>
 #include <cube.hpp>
+#include <toroidal_cube_evolve.hpp>
+#include <toroidal_cube.hpp>
+#include <threaded_cube.hpp>
+#include <thread_pool_cube.hpp>
+#include <evolve_set.hpp>
 #include <evolve.hpp>
+#include <evolve_bitset.hpp>
 #include <seed.hpp>
 #include <update_padding.hpp>
 #include <global_aliases.hpp>
@@ -42,6 +51,9 @@ namespace conway {
     extern a25 rule_two_2_after;
     extern a49 rule_two_3_before;
     extern a49 rule_two_3_after;
+    extern a49 blinker_period_0;
+    extern a49 blinker_period_1;
+    extern a49 blank_a49;
 
     // arrays for testing padding update
     extern a49 board_update_before;
@@ -56,7 +68,7 @@ namespace conway {
     extern a25 cube_face_5_after_update;
 
     // under-lying storage for cell states
-    [[maybe_unused]] static sim_array cell_states;
+    static sim_array cell_states;
 
     // still-life state
     extern a36 block;
