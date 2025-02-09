@@ -17,8 +17,9 @@ namespace conway {
                 for ( int di = -1; di <= 1; di++ )
                     for ( int dj = -1; dj <= 1; dj++ )
 
-                        if ( slices[ slice + dk ].get_cell_state( i + di, j + dj ) == 1 )
+                        if ( slices[ slice + dk ].get_cell_state( i + di, j + dj ) == 1 ) {
                             region_live_count++;
+                        }
 
             return region_live_count;
         }
@@ -32,7 +33,7 @@ namespace conway {
             const size_t board_width = slices[ slice ].get_board_width() - 1;
 
             // loop through cells, excluding edge cells
-            for ( size_t i = 1; i < board_height; ++i )
+            for ( size_t i = 1; i < board_height; ++i ) {
                 for ( size_t j = 1; j < board_width; ++j ) {
 
                     unsigned region_live_count{};
@@ -40,6 +41,7 @@ namespace conway {
                     region_live_count = get_region_live_count<array, mdspan, cube_rank>( slices, slice, i, j );
 
                     region_live_counts.emplace_back( live_count{ i, j, region_live_count } );
+                }
             }
         }
 
@@ -52,8 +54,9 @@ namespace conway {
 
                 if ( slice.get_cell_state( i, j ) == 1 ) {
 
-                    if ( 6 < live_count || live_count > 8 )
+                    if ( 6 < live_count || live_count > 8 ) {
                         slice.set_cell_state( i, j, 0 );
+                    }
 
                 } else if ( live_count == 6 ) {
                     slice.set_cell_state( i, j, 1 );
