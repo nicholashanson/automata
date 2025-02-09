@@ -2,7 +2,7 @@ namespace conway {
 
     template<typename array, typename mdspan, template<typename, typename> class board, size_t cube_rank>
     void draw_toroidal_cube_slice( const conway::toroidal_cube<array, mdspan, board, cube_rank>& cube,
-								   const size_t slice,
+                                   const size_t slice,
                                    const Model& blue_cube,
                                    const Model& white_cube ) {
 
