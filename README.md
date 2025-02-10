@@ -65,6 +65,7 @@ std::bitset<GRID_WIDTH * GRID_HEIGHT> active_cells;
 
 active_cells.set();             // set every bit to '1'
 ```
+Edge-cells are padding, so we need to remove them from active_cells. To do this we define a bit-mask called edge_mask:
 
 ```cpp
 std::bitset<GRID_WIDTH * GRID_HEIGHT> edge_mask;
