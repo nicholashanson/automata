@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
     const int screen_width = 800;
     const int screen_height = 600;
 
-    // reduces Moir�� pattern with higher-dimensional boards
+    // reduces Moiré pattern with higher-dimensional boards
     SetConfigFlags( FLAG_MSAA_4X_HINT );
 
     InitWindow( screen_width, screen_height, "Game of Life" );
