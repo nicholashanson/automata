@@ -107,4 +107,9 @@ Now we need two more bitsets:
 std::bitset<GRID_WIDTH * GRID_HEIGHT> activated_cells;
 std::bitset<GRID_WIDTH * GRID_HEIGHT> deactivated_cells;
 ```
+In the case that cell 3 and cell 7 transition from dead to live, they are there neighbors will be added to activated_cells. Activated cells are then added to active_cells using a bitwise OR:
+
+In the case that cell 9 dies it will be added to deactivated_cells. Deactivated cells are then removed from active_cells using a bitwise XOR:
+
+Finally, any padding cells that were added as neighbors of activated cells need to be removed using the edge_mask:
 
