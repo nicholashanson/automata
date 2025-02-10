@@ -97,4 +97,6 @@ active_cells &= edge_cells
   <img src="https://github.com/user-attachments/assets/f0612ba7-a51d-4eff-be87-24b6bb1bdf1a" />
 </p>
 
-
+Now we need two more bitsets:
+( 1 ) Activated cells: keeps track of all the dead cells that become live and and their neighbors so they can be added to active_cells.
+( 2 ) Deactivated cells: keeps track of any active cells that have a zero live cells in their region. 
