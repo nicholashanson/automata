@@ -87,7 +87,9 @@ for ( i = 0; i < GRID_HEIGHT; ++ i ) {
 }
 ```
 The result looks like this:
-<img src="https://github.com/user-attachments/assets/58240447-7843-4112-9f84-f1edda1103a4" width="100">
+
+![edge_mask](https://github.com/user-attachments/assets/8f201bd3-7f98-4ced-85ab-9536c3ea38a3)
+
 
 Now we can do a bitwise AND between active_cells and edge_mask to remove the padding:
 
