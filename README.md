@@ -44,7 +44,7 @@ The cube is a combination of six boards with spherical wrapping.
 
 ![cube](https://github.com/user-attachments/assets/c293ca2a-4e59-4f4e-9dd7-263688621c55)
 
-### Cylinder
+## Cylinder
 
 The cylinder is a single board with toroidal wrapping. 
 
