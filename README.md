@@ -53,3 +53,5 @@ The cylinder is a single board with toroidal wrapping.
 ## Optimization
 
 ### Using std::bitset to speed-up evolution
+
+![edge_mask](https://github.com/user-attachments/assets/58240447-7843-4112-9f84-f1edda1103a4)
