@@ -17,7 +17,7 @@ ca_test
 
 ### Profiling 
 
-To run the perfoamce profiles, build with:
+To run the performance profiles, build with:
 
 ```
 build.bat --profile
