@@ -113,3 +113,9 @@ In the case that cell 9 dies it will be added to deactivated_cells. Deactivated 
 
 Finally, any padding cells that were added as neighbors of activated cells need to be removed using the edge_mask:
 
+![activated_cells](https://github.com/user-attachments/assets/89aeccc7-789a-47e7-be33-7edc79446b13)
+
+
+![deactivated_cells](https://github.com/user-attachments/assets/6f791ceb-b805-482b-9544-e7214e5ab9f7)
+
+![edge_mask_](https://github.com/user-attachments/assets/69975c28-8782-46a4-b62a-9cbec598881d)
