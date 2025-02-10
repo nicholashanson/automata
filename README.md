@@ -93,6 +93,8 @@ Now we can do a bitwise AND between active_cells and edge_mask to remove the pad
 active_cells &= edge_cells
 ```
 
-![edge_mask](https://github.com/user-attachments/assets/f0612ba7-a51d-4eff-be87-24b6bb1bdf1a)
+<div style="text-align: center;">
+  <img src="https://github.com/user-attachments/assets/f0612ba7-a51d-4eff-be87-24b6bb1bdf1a" />
+</div>
 
 
