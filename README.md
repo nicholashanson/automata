@@ -54,4 +54,24 @@ The cylinder is a single board with toroidal wrapping.
 
 ### Using std::bitset to speed-up evolution
 
+```cpp
+std::bitset<GRID_WIDTH * GRID_HEIGHT> edge_mask;
+
+// set every bit in the edge-mask to '1'
+edge_mask.set();
+
+// clear each edge-cell
+for ( j = 0; j < GRID_WIDTH; ++j ) {
+
+  edge_mask.reset( j );                                      // zero-out the top row
+  edge_mask.reset( ( GRID_HEIGHT - 1 ) * GRID_WIDTH + j );   // zero-out bottom row
+}
+
+for ( i = 0; i < GRID_HEIGHT; ++ i ) {
+
+  edge_mask.reset( i * GRID_WIDTH );                         // zero-out left column
+  edge_mask.reset( i * GRID_WIDTH + ( GRID_WIDTH - 1 ) );    // zero-out right column
+}
+```
+
 ![edge_mask](https://github.com/user-attachments/assets/58240447-7843-4112-9f84-f1edda1103a4)
