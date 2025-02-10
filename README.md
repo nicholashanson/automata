@@ -86,5 +86,11 @@ for ( i = 0; i < GRID_HEIGHT; ++ i ) {
   edge_mask.reset( i * GRID_WIDTH + ( GRID_WIDTH - 1 ) );    // zero-out right column
 }
 ```
+The result looks like this:
+<img src="https://github.com/user-attachments/assets/58240447-7843-4112-9f84-f1edda1103a4" width="100">
 
-<img src="https://github.com/user-attachments/assets/58240447-7843-4112-9f84-f1edda1103a4" width="300">
+Now we can do a bitwise AND between active_cells and edge_mask to remove the padding:
+
+```cpp
+active_cells &= edge_cells
+```
