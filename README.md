@@ -74,4 +74,4 @@ for ( i = 0; i < GRID_HEIGHT; ++ i ) {
 }
 ```
 
-![edge_mask](https://github.com/user-attachments/assets/58240447-7843-4112-9f84-f1edda1103a4)
+<img src="https://github.com/user-attachments/assets/58240447-7843-4112-9f84-f1edda1103a4" width="300">
