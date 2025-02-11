@@ -79,8 +79,12 @@ namespace conway {
 
         std::ranges::for_each( region_live_counts, [&]( const auto& region_live_count ) {
 
-            if ( std::get<2>( region_live_count) == 0 )
+            // the previously active cell has no live cells in its nine-cell region
+            if ( std::get<2>( region_live_count) == 0 ) {
+                
+                // remove it from the set of active cells using its grid co-ordinates
                 bd.remove_cell( std::get<0>( region_live_count ), std::get<1>( region_live_count ) );
+            }
         });
     }
 
