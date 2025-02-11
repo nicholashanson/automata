@@ -130,6 +130,6 @@ active_cells &= edge_mask
 Now we only need to check eight cells in the next iteration instead of all nine. In reality, most cells on the gird will be inactive, so speed-up will be significant.
 
 <p align="center">
-  <img src="performance_profiling/graphs/performance_bitset.png" />
+  <img src="performance_profiling/graphs/performance_evolve_bitset.png" />
 </p>
 
