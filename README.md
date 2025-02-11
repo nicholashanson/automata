@@ -40,12 +40,12 @@ Compiling with GCC 13.2.0 gives no warnings.
 
 ## Cube
 
-<div style="text-align: center;">
-  <div style="display: inline-block; margin: 10px;">
+<div style="display: flex; justify-content: center; align-items: center;">
+  <div style="margin: 10px; text-align: center;">
     <img src="https://github.com/user-attachments/assets/c293ca2a-4e59-4f4e-9dd7-263688621c55" alt="Cube" width="200" />
     <p>Cube</p>
   </div>
-  <div style="display: inline-block; margin: 10px;">
+  <div style="margin: 10px; text-align: center;">
     <img src="https://github.com/user-attachments/assets/21d1126a-954d-4e6c-9db8-fa24b7224afd" alt="Cylinder" width="200" />
     <p>Cylinder</p>
   </div>
