@@ -40,18 +40,18 @@ Compiling with GCC 13.2.0 gives no warnings.
 
 ## Cube
 
-<p align="center">
-  <div style="display: inline-block; text-align: center; margin-right: 20px;">
+<div style="text-align: center;">
+  <span style="display: inline-block; margin-right: 20px;">
     <img src="https://github.com/user-attachments/assets/c293ca2a-4e59-4f4e-9dd7-263688621c55" alt="Cube" width="200" />
     <br />
     Cube
-  </div>
-  <div style="display: inline-block; text-align: center;">
+  </span>
+  <span style="display: inline-block;">
     <img src="https://github.com/user-attachments/assets/21d1126a-954d-4e6c-9db8-fa24b7224afd" alt="Cylinder" width="200" />
     <br />
     Cylinder
-  </div>
-</p>
+  </span>
+</div>
 
 ## Optimization
 
