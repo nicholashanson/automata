@@ -41,11 +41,11 @@ Compiling with GCC 13.2.0 gives no warnings.
 ## Cube
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c293ca2a-4e59-4f4e-9dd7-263688621c55" alt="Cube" width="200" />
+  <img src="https://github.com/user-attachments/assets/c293ca2a-4e59-4f4e-9dd7-263688621c55" alt="Cube" width="600" />
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/user-attachments/assets/21d1126a-954d-4e6c-9db8-fa24b7224afd" alt="Cylinder" width="200" />
+  <img src="https://github.com/user-attachments/assets/21d1126a-954d-4e6c-9db8-fa24b7224afd" alt="Cylinder" width="600" />
   <br />
-  Both images are shown side by side.
+  Spherical cube and toroidal cylinder
 </p>
 
 ## Optimization
