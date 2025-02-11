@@ -45,7 +45,7 @@ Compiling with GCC 13.2.0 gives no warnings.
   &nbsp;&nbsp;&nbsp;&nbsp;
   <img src="https://github.com/user-attachments/assets/21d1126a-954d-4e6c-9db8-fa24b7224afd" alt="Cylinder" width="400" />
   <br />
-  Spherical cube and toroidal cylinder
+  spherical cube and toroidal cylinder
 </p>
 
 ## Optimization
