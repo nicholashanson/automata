@@ -128,7 +128,7 @@ active_cells &= edge_mask
 
 ```
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/86ce17be-9928-4e9b-b805-e47b56c37af4" width="600" />
+  <img src="https://github.com/user-attachments/assets/45e20b87-5830-4575-ad10-d4cffd1b37f8" width="600" />
 </p>
 
 Now we only need to check eight cells in the next iteration instead of all nine. In reality, most cells on the gird will be inactive, so speed-up will be significant.
