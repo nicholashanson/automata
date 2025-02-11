@@ -103,7 +103,7 @@ Now we need two more bitsets:
 std::bitset<GRID_WIDTH * GRID_HEIGHT> activated_cells;
 std::bitset<GRID_WIDTH * GRID_HEIGHT> deactivated_cells;
 ```
-In the case that cell 3 and cell 7 transition from dead to live, they and their neighbors are added to activated_cells. Activated cells are then added to active_cells using a bitwise OR:
+In the case that cell 2 and cell 8 transition from dead to live, they and their neighbors are added to activated_cells. Activated cells are then added to active_cells using a bitwise OR:
 
 ```cpp
 active_cells |= activated_cells
