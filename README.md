@@ -87,7 +87,7 @@ active_cells &= edge_cells
 ```
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/f0612ba7-a51d-4eff-be87-24b6bb1bdf1a" />
+  <img src="https://github.com/user-attachments/assets/f0612ba7-a51d-4eff-be87-24b6bb1bdf1a" width="600" />
 </p>
 
 Now we need two more bitsets:
@@ -106,7 +106,7 @@ In the case that cell 3 and cell 7 transition from dead to live, they and their 
 active_cells |= activated_cells
 ```
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/89aeccc7-789a-47e7-be33-7edc79446b13" />
+  <img src="https://github.com/user-attachments/assets/89aeccc7-789a-47e7-be33-7edc79446b13" width="600" />
 </p>
 
 In the case that cell 9 dies it is added to deactivated_cells. Deactivated cells are then removed from active_cells using a bitwise XOR:
@@ -115,7 +115,7 @@ In the case that cell 9 dies it is added to deactivated_cells. Deactivated cells
 active_cells ^= deactivated_cells
 ```
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/6f791ceb-b805-482b-9544-e7214e5ab9f7" />
+  <img src="https://github.com/user-attachments/assets/6f791ceb-b805-482b-9544-e7214e5ab9f7" width="600" />
 </p>
 
 Finally, any padding cells that were added as neighbors of activated cells need to be removed using the edge_mask:
