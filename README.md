@@ -42,10 +42,12 @@ Compiling with GCC 13.2.0 gives no warnings.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c293ca2a-4e59-4f4e-9dd7-263688621c55" alt="Cube" width="200" />
-  <span>Cube</span>
+  <br />
+  Cube
   &nbsp;&nbsp;&nbsp;&nbsp;
   <img src="https://github.com/user-attachments/assets/21d1126a-954d-4e6c-9db8-fa24b7224afd" alt="Cylinder" width="200" />
-  <span>Cylinder</span>
+  <br />
+  Cylinder
 </p>
 
 ## Optimization
