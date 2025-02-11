@@ -64,6 +64,7 @@ namespace conway {
                 }
             } else if ( live_count != 4 ) // cell dies
                 bd.set_cell_state( i, j, 0 );
+            // else { nothing happens, cell maintains its current state }
         });
     }
 
