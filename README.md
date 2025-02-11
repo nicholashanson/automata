@@ -53,6 +53,8 @@ Compiling with GCC 13.2.0 gives no warnings.
 A cell is either active or inactive. "Active" means that the cells state could possibly change in the next generation. During the evolve stage, we count how many live cells there are in a nine-cell region. We then use this count to detemine the state of the central cell of this region in the next evolution. 
 If the live-cell count is zero, we know that this cell has no possiblilty of changing in the next generation, so we don't need to check it. We can maintain a bitset of active cells that keeps track of which cells have a non-zero count and only check these cells in the next generation. 
 
+If a cell becomes "inactive" ( there are no live cells in its nine cell-region ), we remove it from the set of active cells. If a cell becomes "active", we add it and all its neighbors to the set of active cells.
+
 In the first evolution every cell needs to be checked:
 
 ```cpp
