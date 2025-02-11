@@ -41,9 +41,9 @@ Compiling with GCC 13.2.0 gives no warnings.
 ## Cube
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c293ca2a-4e59-4f4e-9dd7-263688621c55" alt="Cube" width="600" />
+  <img src="https://github.com/user-attachments/assets/c293ca2a-4e59-4f4e-9dd7-263688621c55" alt="Cube" width="400" />
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/user-attachments/assets/21d1126a-954d-4e6c-9db8-fa24b7224afd" alt="Cylinder" width="600" />
+  <img src="https://github.com/user-attachments/assets/21d1126a-954d-4e6c-9db8-fa24b7224afd" alt="Cylinder" width="400" />
   <br />
   Spherical cube and toroidal cylinder
 </p>
