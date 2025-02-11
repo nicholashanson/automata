@@ -97,7 +97,7 @@ Now we need two more bitsets:
 
 ( 1 ) Activated cells: keeps track of all the dead cells that become live and their neighbors so they can be added to active_cells.
 
-( 2 ) Deactivated cells: keeps track of any active cells that have a zero live cells in their region. 
+( 2 ) Deactivated cells: keeps track of any active cells that have zero live cells in their region. 
 
 ```cpp
 std::bitset<GRID_WIDTH * GRID_HEIGHT> activated_cells;
