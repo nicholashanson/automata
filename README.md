@@ -136,3 +136,4 @@ Now we only need to check eight cells in the next iteration instead of all nine.
   <img src="performance_profiling/graphs/performance_evolve_bitset.png" />
 </p>
 
+The data above is collected by running the simulation for 400 iterations 40 times, and then caculating the average time taken to execute each iteration across all 40 runs. As can see from the graph, there is a small overhead incurred by tracking active cells at the very beginning of the simulation. In the case of bitset this overhead is much smaller than using a set ( in this case, std::unordered_set with perfect hashing ). Over the course of 400 iterations, bitset is at least 3x faster than the un-optimized approach and at least 50% faster than using std::unordered_set and doesn't have the massive initial overhead.
