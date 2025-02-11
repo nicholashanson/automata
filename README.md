@@ -124,7 +124,7 @@ Finally, any padding cells that were added as neighbors of activated cells need 
 active_cells &= edge_mask
 ```
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/49f9ed96-e19a-4a55-8694-1a8d221072c1" width="200" />
+  <img src="https://github.com/user-attachments/assets/49f9ed96-e19a-4a55-8694-1a8d221072c1" width="300" />
 </p>
 
 Now we only need to check eight cells in the next iteration instead of all nine. In reality, most cells on the gird will be inactive, so speed-up will be significant.
