@@ -46,6 +46,9 @@ namespace conway {
         for ( int di = -1; di <= 1; ++di )
             for ( int dj = -1; dj <= 1; ++dj )
 
+                // ALERT: I think there's an elusive bug here where values are under-flowing
+                // due to type conversions but these values are filtered out by bounds-checking inside add_cell().
+                // this results in correct behaviour despite incorrect code
                 if ( di != 0 || dj != 0 )
                     bd.add_cell( i + di, j + dj );
     }
