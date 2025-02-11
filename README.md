@@ -107,15 +107,30 @@ Now we need two more bitsets:
 std::bitset<GRID_WIDTH * GRID_HEIGHT> activated_cells;
 std::bitset<GRID_WIDTH * GRID_HEIGHT> deactivated_cells;
 ```
-In the case that cell 3 and cell 7 transition from dead to live, they are there neighbors will be added to activated_cells. Activated cells are then added to active_cells using a bitwise OR:
+In the case that cell 3 and cell 7 transition from dead to live, they and their neighbors are added to activated_cells. Activated cells are then added to active_cells using a bitwise OR:
 
-In the case that cell 9 dies it will be added to deactivated_cells. Deactivated cells are then removed from active_cells using a bitwise XOR:
+```cpp
+active_cells |= activated_cells
+```
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/89aeccc7-789a-47e7-be33-7edc79446b13" />
+</p>
+
+In the case that cell 9 dies it is added to deactivated_cells. Deactivated cells are then removed from active_cells using a bitwise XOR:
+
+```cpp
+active_cells ^= deactivated_cells
+```
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6f791ceb-b805-482b-9544-e7214e5ab9f7" />
+</p>
 
 Finally, any padding cells that were added as neighbors of activated cells need to be removed using the edge_mask:
 
-![activated_cells](https://github.com/user-attachments/assets/89aeccc7-789a-47e7-be33-7edc79446b13)
-
-![deactivated_cells](https://github.com/user-attachments/assets/6f791ceb-b805-482b-9544-e7214e5ab9f7)
-
-![edge_mask_](https://github.com/user-attachments/assets/49f9ed96-e19a-4a55-8694-1a8d221072c1)
+```cpp
+active_cells &= edge_mask
+```
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/49f9ed96-e19a-4a55-8694-1a8d221072c1" />
+</p>
 
