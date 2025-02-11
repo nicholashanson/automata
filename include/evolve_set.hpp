@@ -8,14 +8,23 @@ namespace conway {
     template<template<typename, typename> class board, typename array, typename mdspan>
     void evolve_set( board<array, mdspan>& bd ) {
 
+        // co-ordinates of cell in grid and live cells in its nine-cell region
         std::vector<std::tuple<size_t, size_t, unsigned>> region_live_counts;
+
+        // allocate enough memory to store a count for each "active" cell
         region_live_counts.reserve( bd.cell_count() );
 
+        /*
+            count live cells in a ninec-cell region 
+            -> use count to apply rules 
+            -> remove any cells that a zero live-cell count
+        */
         get_region_live_counts_set( bd, region_live_counts );
         apply_rules_set( bd, region_live_counts );
         remove_inactive_cells( bd, region_live_counts );
     }
 
+    // a "live-count" is the number of live cells in a nine-cell region
     template<template<typename, typename> class board, typename array, typename mdspan>
     void get_region_live_counts_set( board<array, mdspan>& bd, std::vector<std::tuple<size_t, size_t, unsigned >>& region_live_counts ) {
 
@@ -26,6 +35,7 @@ namespace conway {
 
             region_live_count = get_region_live_count( bd, i, j );
 
+            // store the "live-count" with its co-ordinates in the grid
             region_live_counts.emplace_back( std::tuple<size_t, size_t, unsigned>{ i, j, region_live_count } );
         }
     }
@@ -57,6 +67,10 @@ namespace conway {
         });
     }
 
+    /*
+        remove "inactive cells". any cells that now have no live cells in their nine-cell region are removed
+        from the set of "active" cells
+    */
     template<template<typename, typename> class board, typename array, typename mdspan>
     void remove_inactive_cells( board<array, mdspan>& bd, const std::vector<std::tuple<size_t, size_t, unsigned>>& region_live_counts ) {
 
