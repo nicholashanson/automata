@@ -115,7 +115,7 @@ Finally, any padding cells that were added as neighbors of activated cells need 
 
 ![activated_cells](https://github.com/user-attachments/assets/89aeccc7-789a-47e7-be33-7edc79446b13)
 
-
 ![deactivated_cells](https://github.com/user-attachments/assets/6f791ceb-b805-482b-9544-e7214e5ab9f7)
 
-![edge_mask_](https://github.com/user-attachments/assets/69975c28-8782-46a4-b62a-9cbec598881d)
+![edge_mask_](https://github.com/user-attachments/assets/49f9ed96-e19a-4a55-8694-1a8d221072c1)
+
