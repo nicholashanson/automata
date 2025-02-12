@@ -163,7 +163,7 @@ In the case that cell 9 dies it is added to deactivated_cells. Deactivated cells
 active_cells ^= deactivated_cells
 ```
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/6f791ceb-b805-482b-9544-e7214e5ab9f7" width="400" />
+  <img src="https://github.com/user-attachments/assets/6f791ceb-b805-482b-9544-e7214e5ab9f7" width="600" />
 </p>
 
 Finally, any padding cells that were added as neighbors of activated cells need to be removed using the edge_mask:
