@@ -53,7 +53,7 @@ Compiling with GCC 13.2.0 gives no warnings.
 </p>
 
 Before we can evolve the grid to the next generation we need to update the grid padding. This is done once at the beginning of the siulation and then once again after
-each generation. The grid padding is updates as follows:
+each generation. The grid padding is updated as follows:
 
 ( 1 ) Copy the second to last row of cell states into the first row:
 
