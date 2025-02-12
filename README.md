@@ -82,8 +82,9 @@ grid[ : ][ 0 ] = grid[ : ][ GRID_WIDTH - 2 ]
 ```
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/d0b104f9-c9ae-434f-a9eb-010dd9868487" width="400" />
+  <img src="https://github.com/user-attachments/assets/d0859a9d-21b8-415c-9b0f-88706da845ef" width="400" />
 </p>
+
 
 ( 4 ) Copy the second column of cell states into the last column: 
 
@@ -92,7 +93,7 @@ grid[ : ][ GRID_WIDTH - 1 ] = grid[ : ][ 1 ]
 ```
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/05f7bdfd-e236-4553-8631-234a67b3272c" width="400" />
+  <img src="https://github.com/user-attachments/assets/a1db8d04-5312-4cf4-afcb-c5d4eabadcce" width="400" />
 </p>
 
 This creates the effect of toroidal wrapping.
