@@ -47,9 +47,33 @@ Compiling with GCC 13.2.0 gives no warnings.
 </p>
 
 Before we can evolve the grid to the next generation we need to update the grid padding. This is done once at the beginning of the siulation and then once again after
-each generation. To update the grid padding, first we copy the second to last row of cell states into the first row and the second row of cell states into the last row.
-Then we copy the second to last column of cell states into the first column and the second column of cell states to the last column. This creates the effect of 
-toroidal wrapping.
+each generation. The grid padding is updates as follows:
+
+( 1 ) Copy the second to last row of cell states into the first row:
+
+```cpp
+grid[ 0 ][ : ] = grid[ GRID_HEIGHT - 2 ][ : ]
+```
+
+( 2 ) Copy the second row of cells states into the last row:
+
+```cpp
+grid[ GRID_HEIGHT - 1 ][ : ] = grid[ 1 ][ : ] 
+```
+
+( 3 ) Copy the second to last column of cells states into the first column:
+
+```cpp
+grid[ : ][ 0 ] = grid[ : ][ GRID_WIDTH - 2 ] 
+```
+
+( 4 ) Copy the second column of cell states into the last column: 
+
+```cpp
+grid[ : ][ GRID_WIDTH - 1 ] = grid[ : ][ 1 ] 
+```
+
+This creates the effect of toroidal wrapping.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/46a258f7-8fd6-4c5f-8e0d-3b7cbe73bb15" width="400" />
