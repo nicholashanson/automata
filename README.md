@@ -46,7 +46,7 @@ Compiling with GCC 13.2.0 gives no warnings.
   spherical cube and toroidal cylinder
 </p>
 
-## Updating Padding
+## Padding
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/46a258f7-8fd6-4c5f-8e0d-3b7cbe73bb15" width="400" />
@@ -81,10 +81,14 @@ grid[ : ][ GRID_WIDTH - 1 ] = grid[ : ][ 1 ]
 
 This creates the effect of toroidal wrapping.
 
+## Evolution
+
+To evolve the grid, we count the total number of cells in a nine-cell region. We don't need to worry about grid wrapping because padding cells aren't targeted.
+Counting all the live cells in a nine cell region simplifies evolution because there is less branching.
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/053e567d-1dd7-48bb-bd20-2883e646b18c" width="600" />
 </p>
-
 
 ## Optimization
 
