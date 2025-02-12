@@ -61,11 +61,19 @@ each generation. The grid padding is updated as follows:
 grid[ 0 ][ : ] = grid[ GRID_HEIGHT - 2 ][ : ]
 ```
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c7cc04e2-cf18-4afd-a956-b740f100f853" width="400" />
+</p>
+
 ( 2 ) Copy the second row of cells states into the last row:
 
 ```cpp
 grid[ GRID_HEIGHT - 1 ][ : ] = grid[ 1 ][ : ] 
 ```
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a4085064-03be-46e4-9212-dcdfbf26ecf6" width="400" />
+</p>
 
 ( 3 ) Copy the second to last column of cells states into the first column:
 
@@ -73,11 +81,19 @@ grid[ GRID_HEIGHT - 1 ][ : ] = grid[ 1 ][ : ]
 grid[ : ][ 0 ] = grid[ : ][ GRID_WIDTH - 2 ] 
 ```
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d0b104f9-c9ae-434f-a9eb-010dd9868487" width="400" />
+</p>
+
 ( 4 ) Copy the second column of cell states into the last column: 
 
 ```cpp
-grid[ : ][ GRID_WIDTH - 1 ] = grid[ : ][ 1 ] 
+grid[ : ][ GRID_WIDTH - 1 ] = grid[ : ][ 1 ]
 ```
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/05f7bdfd-e236-4553-8631-234a67b3272c" width="400" />
+</p>
 
 This creates the effect of toroidal wrapping.
 
