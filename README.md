@@ -84,7 +84,7 @@ This creates the effect of toroidal wrapping.
 ## Evolution
 
 To evolve the grid, we count the total number of cells in a nine-cell region and apply the evolution rules to the central cell in the region according to this count. We don't need to worry about grid wrapping because padding cells aren't targeted.
-Counting all the live cells in a nine cell region simplifies evolution because there is less branching.
+Compared with only counting live neigbors and applying rules conditionally based on whether the cell is live or dead, counting all the live cells in a nine-cell region simplifies evolution because there is less branching.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/053e567d-1dd7-48bb-bd20-2883e646b18c" width="600" />
