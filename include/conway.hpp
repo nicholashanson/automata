@@ -15,7 +15,6 @@
 #include <board.hpp>
 #include <board_bitset.hpp>
 #include <board_set.hpp>
-#include <board_unordered_set.hpp>
 #include <cube.hpp>
 #include <toroidal_cube_evolve.hpp>
 #include <toroidal_cube.hpp>

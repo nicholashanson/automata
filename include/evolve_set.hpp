@@ -5,8 +5,8 @@
 
 namespace conway {
 
-    template<template<typename, typename> class board, typename array, typename mdspan>
-    void evolve_set( board<array, mdspan>& bd ) {
+    template<template<typename, typename, typename> class board, typename array, typename mdspan, typename set>
+    void evolve_set( board<array, mdspan, set>& bd ) {
 
         // co-ordinates of cell in grid and live cells in its nine-cell region
         std::vector<std::tuple<size_t, size_t, unsigned>> region_live_counts;
@@ -25,8 +25,8 @@ namespace conway {
     }
 
     // a "live-count" is the number of live cells in a nine-cell region
-    template<template<typename, typename> class board, typename array, typename mdspan>
-    void get_region_live_counts_set( board<array, mdspan>& bd, std::vector<std::tuple<size_t, size_t, unsigned >>& region_live_counts ) {
+    template<template<typename, typename, typename> class board, typename array, typename mdspan, typename set>
+    void get_region_live_counts_set( board<array, mdspan, set>& bd, std::vector<std::tuple<size_t, size_t, unsigned >>& region_live_counts ) {
 
         const auto active_cells = bd.get_active_cells();
 
@@ -40,8 +40,8 @@ namespace conway {
         }
     }
 
-    template<template<typename, typename> class board, typename array, typename mdspan>
-    void add_neighbors_to_active_cells( board<array, mdspan>& bd, const size_t i, const size_t j ) {
+    template<template<typename, typename, typename> class board, typename array, typename mdspan, typename set>
+    void add_neighbors_to_active_cells( board<array, mdspan, set>& bd, const size_t i, const size_t j ) {
 
         for ( int di = -1; di <= 1; ++di )
             for ( int dj = -1; dj <= 1; ++dj )
@@ -53,8 +53,8 @@ namespace conway {
                     bd.add_cell( i + di, j + dj );
     }
 
-    template<template<typename, typename> class board, typename array, typename mdspan>
-    void apply_rules_set( board<array, mdspan>& bd, const std::vector<std::tuple<size_t, size_t, unsigned>>& region_live_counts ) {
+    template<template<typename, typename, typename> class board, typename array, typename mdspan, typename set>
+    void apply_rules_set( board<array, mdspan, set>& bd, const std::vector<std::tuple<size_t, size_t, unsigned>>& region_live_counts ) {
         std::ranges::for_each( region_live_counts, [&]( const auto& region_live_count ) {
 
             // apply rules
@@ -75,8 +75,8 @@ namespace conway {
         remove "inactive cells". any cells that now have no live cells in their nine-cell region are removed
         from the set of "active" cells
     */
-    template<template<typename, typename> class board, typename array, typename mdspan>
-    void remove_inactive_cells( board<array, mdspan>& bd, const std::vector<std::tuple<size_t, size_t, unsigned>>& region_live_counts ) {
+    template<template<typename, typename, typename> class board, typename array, typename mdspan, typename set>
+    void remove_inactive_cells( board<array, mdspan, set>& bd, const std::vector<std::tuple<size_t, size_t, unsigned>>& region_live_counts ) {
 
         const auto active_cells = bd.get_active_cells();
 
