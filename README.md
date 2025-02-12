@@ -51,7 +51,7 @@ Compiling with GCC 13.2.0 gives no warnings.
 </p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/46a258f7-8fd6-4c5f-8e0d-3b7cbe73bb15" width="600" />
+  <img src="https://github.com/user-attachments/assets/46a258f7-8fd6-4c5f-8e0d-3b7cbe73bb15" width="400" />
 </p>
 
 ## Optimization
