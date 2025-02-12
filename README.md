@@ -1,4 +1,4 @@
-# Game of Life
+# Automata
 
 Simulates Cellular Automata, including Conway's Game of Life, in various formats.
 
