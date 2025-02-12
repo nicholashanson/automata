@@ -46,6 +46,12 @@ Compiling with GCC 13.2.0 gives no warnings.
   spherical cube and toroidal cylinder
 </p>
 
+## Updating Padding
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/46a258f7-8fd6-4c5f-8e0d-3b7cbe73bb15" width="400" />
+</p>
+
 Before we can evolve the grid to the next generation we need to update the grid padding. This is done once at the beginning of the siulation and then once again after
 each generation. The grid padding is updates as follows:
 
@@ -74,10 +80,6 @@ grid[ : ][ GRID_WIDTH - 1 ] = grid[ : ][ 1 ]
 ```
 
 This creates the effect of toroidal wrapping.
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/46a258f7-8fd6-4c5f-8e0d-3b7cbe73bb15" width="400" />
-</p>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/053e567d-1dd7-48bb-bd20-2883e646b18c" width="600" />
