@@ -46,6 +46,50 @@ Compiling with GCC 13.2.0 gives no warnings.
   spherical cube and toroidal cylinder
 </p>
 
+## Padding
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/46a258f7-8fd6-4c5f-8e0d-3b7cbe73bb15" width="400" />
+</p>
+
+Before we can evolve the grid to the next generation we need to update the grid padding. This is done once at the beginning of the siulation and then once again after
+each generation. The grid padding is updated as follows:
+
+( 1 ) Copy the second to last row of cell states into the first row:
+
+```cpp
+grid[ 0 ][ : ] = grid[ GRID_HEIGHT - 2 ][ : ]
+```
+
+( 2 ) Copy the second row of cells states into the last row:
+
+```cpp
+grid[ GRID_HEIGHT - 1 ][ : ] = grid[ 1 ][ : ] 
+```
+
+( 3 ) Copy the second to last column of cells states into the first column:
+
+```cpp
+grid[ : ][ 0 ] = grid[ : ][ GRID_WIDTH - 2 ] 
+```
+
+( 4 ) Copy the second column of cell states into the last column: 
+
+```cpp
+grid[ : ][ GRID_WIDTH - 1 ] = grid[ : ][ 1 ] 
+```
+
+This creates the effect of toroidal wrapping.
+
+## Evolution
+
+To evolve the grid, we count the total number of cells in a nine-cell region and apply the evolution rules to the central cell in the region according to this count. We don't need to worry about grid wrapping because padding cells aren't targeted.
+Compared with only counting live neigbors and applying rules conditionally based on whether the cell is live or dead, counting all the live cells in a nine-cell region simplifies evolution because there is less branching.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/053e567d-1dd7-48bb-bd20-2883e646b18c" width="600" />
+</p>
+
 ## Optimization
 
 ### Using std::bitset to speed-up evolution
