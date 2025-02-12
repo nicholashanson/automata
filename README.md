@@ -83,7 +83,7 @@ This creates the effect of toroidal wrapping.
 
 ## Evolution
 
-To evolve the grid, we count the total number of cells in a nine-cell region. We don't need to worry about grid wrapping because padding cells aren't targeted.
+To evolve the grid, we count the total number of cells in a nine-cell region and apply the evolution rules to the central cell in the region according to this count. We don't need to worry about grid wrapping because padding cells aren't targeted.
 Counting all the live cells in a nine cell region simplifies evolution because there is less branching.
 
 <p align="center">
