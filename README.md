@@ -46,13 +46,19 @@ Compiling with GCC 13.2.0 gives no warnings.
   spherical cube and toroidal cylinder
 </p>
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/053e567d-1dd7-48bb-bd20-2883e646b18c" width="600" />
-</p>
+Before we can evolve the grid to the next generation we need to update the grid padding. This is done once at the beginning of the siulation and then once again after
+each generation. To update the grid padding, first we copy the second to last row of cell states into the first row and the second row of cell states into the last row.
+Then we copy the second to last column of cell states into the first column and the second column of cell states to the last column. This creates the effect of 
+toroidal wrapping.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/46a258f7-8fd6-4c5f-8e0d-3b7cbe73bb15" width="400" />
 </p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/053e567d-1dd7-48bb-bd20-2883e646b18c" width="600" />
+</p>
+
 
 ## Optimization
 
