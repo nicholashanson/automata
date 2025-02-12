@@ -1,5 +1,5 @@
-#ifndef CONWAY_BOARD_2D_HPP
-#define CONWAY_BOARD_2D_HPP
+#ifndef BOARD_SET_HPP
+#define BOARD_SET_HPP
 
 #include <board.hpp>
 #include <unordered_set>
