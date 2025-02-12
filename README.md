@@ -46,6 +46,18 @@ Compiling with GCC 13.2.0 gives no warnings.
   spherical cube and toroidal cylinder
 </p>
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/89aeccc7-789a-47e7-be33-7edc79446b13" width="600" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/272bce97-2245-46bf-8efd-a14db3e93dc6" width="600" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/46a258f7-8fd6-4c5f-8e0d-3b7cbe73bb15" width="600" />
+</p>
+
 ## Optimization
 
 ### Using std::bitset to speed-up evolution
