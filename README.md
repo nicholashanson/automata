@@ -47,10 +47,6 @@ Compiling with GCC 13.2.0 gives no warnings.
 </p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/89aeccc7-789a-47e7-be33-7edc79446b13" width="600" />
-</p>
-
-<p align="center">
   <img src="https://github.com/user-attachments/assets/272bce97-2245-46bf-8efd-a14db3e93dc6" width="600" />
 </p>
 
